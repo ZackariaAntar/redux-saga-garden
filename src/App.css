@@ -24,3 +24,25 @@ pre {
     white-space: -o-pre-wrap;    /* Opera 7 */
     word-wrap: break-word;       /* Internet Explorer 5.5+ */
 }
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 600px;
+}
+
+.plant-form{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+
+}
+
+span{
+  margin-right: 15px ;
+
+}
+
+
