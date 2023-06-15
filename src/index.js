@@ -45,8 +45,11 @@ function* changePlant(){
   }
 }
 
-function* removePlant(){
+function* removePlant(action){
   try{
+    yield axios.delete(`/api/plant/${action.payload}`)
+    yield put({type: 'FETCH_PLANT'})
+
 
   }catch(error){
     console.log('There was an error with the DELETE',error);
@@ -66,7 +69,7 @@ function* rootSaga(){
   yield takeLatest('FETCH_PLANT', fetchPlant)
   yield takeLatest('POST_PLANT', postPlant)
   // yield takeLatest('CHANGE_PLANT', )
-  // yield takeLatest('REMOVE_PLANT', )
+  yield takeLatest('REMOVE_PLANT', removePlant )
 }
 
 

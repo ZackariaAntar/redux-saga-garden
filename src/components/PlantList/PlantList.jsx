@@ -6,12 +6,17 @@ function PlantList() {
     const dispatch = useDispatch();
 
     const reduxState = useSelector(store => store.plantList);
-  
+
 
     useEffect(() => {
         dispatch({type:'FETCH_PLANT'})
         // dispatch an action to request the plantList from the API
     }, []);
+
+    const removePlant = (id) => {
+
+        dispatch({type:'REMOVE_PLANT', payload: id})
+    }
 
     return (
         <div>
@@ -19,7 +24,10 @@ function PlantList() {
             <ul>
                 {reduxState.map((plant)=>(
                     <li key={plant.id}>
-                        {plant.name}
+                        <span>
+                            {plant.name}
+                            </span>
+                            <span><button onClick={()=> removePlant(plant.id)}>REMOVE</button></span>
                     </li>
                 ))}
 
